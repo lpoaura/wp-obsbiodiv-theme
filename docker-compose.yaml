@@ -43,6 +43,3 @@ services:
                 define('SITE_ID_CURRENT_SITE', 1);
                 define('BLOG_ID_CURRENT_SITE', 1);
     working_dir: /var/www/html
-    volumes:
-      - ./wp-content:/var/www/html/wp-content/themes
-      - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
