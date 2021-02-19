@@ -1,0 +1,7 @@
+version: '3.7'
+
+services:
+  wp:
+    volumes:
+      - ./wp_obsbiodiv_theme:/var/www/html/wp-content/themes/wp_obsbiodiv_theme
+ 

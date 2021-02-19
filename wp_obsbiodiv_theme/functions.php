@@ -392,7 +392,7 @@ function update_geocitizen_settings(){
 	
 	if (isset($_POST['geocitizen_projects_url'])) {
 		$val = $_POST['geocitizen_projects_url'];
-		if ( substr($val, -1) != '/') $val=$val.'/';
+		//if ( substr($val, -1) != '/') $val=$val.'/';
 		update_site_option('geocitizen_projects_url',$val);
 	}
 	
