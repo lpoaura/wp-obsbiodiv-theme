@@ -2,28 +2,9 @@
 
 Wordpress Theme to accompany GeoNature-citizen (communication tool for the general public) in multisite WordPress instance
 
-## Deploy multisite Wordress
+## Installation
 
-
-### Configure WordPress with multisite option
-
-lorem ipsum
-
-### Deploy with WordPress
-
-You ca use provided `docker-compose.yaml` file to deploy WordPress site configured with multisite and theme installed. To proceed, do following intructions.
-
-copy `.env.sample` file to `.env` and edit `.env`.
-
-```bash
-cp .env.sample .env
-editor .env
-```
-Start docker stack
-
-```bash
-docker-compose up -d
-```
+see [INSTALL.md](INSTALL.md)
 
 ## Licence
 
