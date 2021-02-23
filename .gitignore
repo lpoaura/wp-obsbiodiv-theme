@@ -23,3 +23,7 @@ node_modules/
 *.sqlite
 
 .env
+
+# ignore custom themes
+wp_obsbiodiv_theme/inc/assets/css/color/*.css
+
