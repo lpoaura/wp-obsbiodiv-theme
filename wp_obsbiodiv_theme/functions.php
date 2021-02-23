@@ -304,7 +304,7 @@ function api_geocitizen ($attr = '') {
 		if ($current_project_key!==false) {
 			$current_project_id = $api_projects[$current_project_key]['id_project'];
 			
-			$api_link = $apiurl_projects.$current_project_id.'/'.$attr;
+			$api_link = $apiurl_projects.'/'.$current_project_id.'/'.$attr;  //Ajout de '/' après $apiurl_projects, modification du 23/02/2021
 			$file_headers = @get_headers($api_link);
 			
 			if(!$file_headers || $file_headers[0] != 'HTTP/1.1 200 OK') {
@@ -386,13 +386,13 @@ function update_geocitizen_settings(){
 	
 	if (isset($_POST['geocitizen_programs_url'])) {
 		$val = $_POST['geocitizen_programs_url'];
-		if ( substr($val, -1) != '/') $val=$val.'/';
+		//if ( substr($val, -1) != '/') $val=$val.'/'; Modification du 23/02/2021
 		update_site_option('geocitizen_programs_url',$val);
 	}
 	
 	if (isset($_POST['geocitizen_projects_url'])) {
 		$val = $_POST['geocitizen_projects_url'];
-		//if ( substr($val, -1) != '/') $val=$val.'/';
+		//if ( substr($val, -1) != '/') $val=$val.'/'; Modification du 23/02/2021
 		update_site_option('geocitizen_projects_url',$val);
 	}
 	
