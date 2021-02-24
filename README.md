@@ -6,6 +6,18 @@ Wordpress Theme to accompany GeoNature-citizen (communication tool for the gener
 
 see [INSTALL.md](INSTALL.md)
 
+## Screenshots
+
+![Home](img/home.png)
+
+![Home with footer](img/home_full.png)
+
+![Participate](img/participate.png)
+
+![News](img/news.png)
+
+
+
 ## Licence
 
 Actually not defined 
