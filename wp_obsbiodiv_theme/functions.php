@@ -52,8 +52,15 @@ function wp_obsbiodiv_setup() {
 	
 	
 	global $apiurl_programs, $apiurl_projects, $api_projects;
-	$apiurl_projects = get_site_option('geocitizen_projects_url');
-	$apiurl_programs = get_site_option('geocitizen_programs_url');
+	
+	if ( is_multisite() ) {
+		$apiurl_projects = get_site_option('geocitizen_projects_url');
+		$apiurl_programs = get_site_option('geocitizen_programs_url');
+	} else {
+		$apiurl_projects = get_field( 'geocitizen_projects_url', 'option' );
+		$apiurl_programs = get_field( 'geocitizen_programs_url', 'option' );
+	}
+	
 	$file_headers = @get_headers($apiurl_projects);
 	
 	if(!$file_headers || $file_headers[0] != 'HTTP/1.1 200 OK') {
@@ -286,6 +293,13 @@ if( function_exists( 'acf_add_options_page' ) ) {
 		'parent_slug'	=> 'theme-general-settings',
 	) );
 	
+	if ( !is_multisite() ) {
+		acf_add_options_sub_page( array(
+			'page_title' 	=> 'GeoCitizen API',
+			'menu_title'	=> 'GeoCitizen API',
+			'parent_slug'	=> 'theme-general-settings',
+		) );
+	}
 }
 
 function UR_exists($url){
@@ -328,16 +342,18 @@ function api_geocitizen ($attr = '') {
 	}
 }
 
-add_action('network_admin_menu', 'add_geocitizen_settings_page');
-function add_geocitizen_settings_page() {
-	add_submenu_page(
-		 'settings.php',
-		 'GeoCitizen API',
-		 'GeoCitizen API',
-		 'manage_network_options',
-		 'geocitizen-settings',
-		 'geocitizen_options_form'
-	);    
+if ( is_multisite() ) {
+	add_action('network_admin_menu', 'add_geocitizen_settings_page');
+	function add_geocitizen_settings_page() {
+		add_submenu_page(
+			 'settings.php',
+			 'GeoCitizen API',
+			 'GeoCitizen API',
+			 'manage_network_options',
+			 'geocitizen-settings',
+			 'geocitizen_options_form'
+		);    
+	}
 }
 
 function geocitizen_options_form(){

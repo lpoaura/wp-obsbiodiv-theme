@@ -7,6 +7,7 @@ get_header();
 
 global $apiurl_programs;
 $api_programs = api_geocitizen('programs');
+
 $api_programs = $api_programs['programs'];
 $count = $api_programs['count'];
 $items = $api_programs['items'];
