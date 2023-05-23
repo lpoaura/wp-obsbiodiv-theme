@@ -24,9 +24,17 @@ get_header();
 			</div>
 			
 			<?php
+			if ( get_query_var('paged') ) {
+			    $paged = get_query_var('paged');
+			} elseif ( get_query_var('page') ) {
+			    $paged = get_query_var('page');
+			} else {
+			    $paged = 1;
+			}
+			
 			$args = array(
 				'posts_per_page' => 10,
-				'paged' => 1,
+				'paged' => $paged,
 				'post_type' => 'post'
 			);
 			$postslist = new WP_Query( $args );
